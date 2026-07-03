@@ -2,11 +2,11 @@
 
 HotInsight 是一个用于产品实习作品集展示的 Web Demo。它不是普通热搜榜，而是一个围绕“发现热点、理解背景、判断争议、继续搜索、关注后续、反馈偏好”的热点搜索消费决策系统原型。
 
-
 ## 在线展示
 
-- GitHub Pages 展示页：用于作品集投递主链接，展示项目背景、问题定义、产品路径、方法框架和 Demo 入口。部署后地址形如 `https://<your-github-username>.github.io/<repo-name>/`。
+- GitHub Pages 展示页：[https://wokaodeshang.github.io/hotinsight-ai-rag-agent/](https://wokaodeshang.github.io/hotinsight-ai-rag-agent/)，用于作品集投递主链接，展示项目背景、问题定义、产品路径、方法框架和 Demo 入口。
 - Vercel 交互 Demo：[https://hot-insight-ai-rag-agent.vercel.app/](https://hot-insight-ai-rag-agent.vercel.app/)
+- GitHub 仓库：[https://github.com/wokaodeshang/hotinsight-ai-rag-agent](https://github.com/wokaodeshang/hotinsight-ai-rag-agent)
 
 说明：完整交互 Demo 部署在 Vercel，部分大陆网络访问 Vercel 可能较慢或需要代理。GitHub Pages 展示页是静态页面，不依赖后端，适合作为简历和投递时的主展示入口。
 
@@ -40,6 +40,8 @@ HotInsight 是一个用于产品实习作品集展示的 Web Demo。它不是普
 - lucide-react
 - 本地 mock 数据
 - 规则与 mock responses 模拟 AI 回答
+- GitHub Pages 静态展示页
+- Vercel 生产部署
 
 ## 运行方式
 
@@ -74,7 +76,6 @@ npm test
 - Agent 意图路由：把用户点击和提问映射到背景理解、原因追问、进展追踪、观点判断、实用关联、搜索扩展和情绪反馈。
 - Prompt 与回答结构：模拟包含背景、原因和后续搜索建议的结构化回答。
 - BadCase 分析：把“总结过泛、搜索不准、分类错误、重复推荐”等问题转化为可迭代策略。
-- 推荐策略：用热度、增长、兴趣匹配、搜索意图和负反馈构建推荐优先级公式。`n- 指标意识：把“热度、增长、争议、搜索意图、负反馈”解释为产品动作，而不是只展示假数字。`n- 作品表达：明确说明 mock 数据用于策略演示，重点展示热点产品的信息架构、AI 意图路由和反馈迭代闭环。
-
-
-
+- 推荐策略：用热度、增长、兴趣匹配、搜索意图和负反馈构建推荐优先级公式。
+- 指标意识：把“热度、增长、争议、搜索意图、负反馈”解释为产品动作，而不是只展示假数字。
+- 作品表达：明确说明 mock 数据用于策略演示，重点展示热点产品的信息架构、AI 意图路由和反馈迭代闭环。
