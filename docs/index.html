@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HotInsight | AI 热点消费助手</title>
+  <meta name="description" content="HotInsight: 面向搜索场景的 AI 热点消费助手，展示热点理解、意图路由、搜索承接和反馈迭代。" />
+  <style>
+    :root { --ink:#172033; --muted:#64748b; --line:#e2e8f0; --paper:#fff; --bg:#f7f9fc; --brand:#e23d28; --teal:#0f766e; --violet:#6d5dfc; --amber:#b7791f; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:linear-gradient(180deg,rgba(226,61,40,.06),transparent 320px),var(--bg); line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    .page { width:min(1120px,calc(100% - 32px)); margin:0 auto; padding:28px 0 56px; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:36px; }
+    .brand { font-weight:800; font-size:20px; }
+    .nav-links,.meta { display:flex; gap:10px; flex-wrap:wrap; }
+    .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:10px 14px; font-size:14px; font-weight:700; box-shadow:0 8px 20px rgba(15,23,42,.05); }
+    .button.primary { background:var(--ink); color:white; border-color:var(--ink); }
+    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:stretch; margin-bottom:24px; }
+    .panel { border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.96); box-shadow:0 14px 32px rgba(15,23,42,.06); }
+    .hero-main,.hero-side,section { padding:28px; }
+    .eyebrow { color:var(--brand); font-size:14px; font-weight:800; margin:0 0 10px; }
+    h1 { font-size:clamp(34px,5vw,58px); line-height:1.08; margin:0; letter-spacing:0; }
+    h2 { font-size:24px; line-height:1.25; margin:0 0 8px; }
+    h3 { font-size:17px; margin:0 0 6px; }
+    p { margin:0; }
+    .lead { margin-top:18px; color:var(--muted); font-size:17px; }
+    .meta { margin-top:22px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:6px 10px; background:#fff; font-size:13px; color:var(--muted); font-weight:700; }
+    .warning { margin-top:18px; background:#fff7ed; border:1px solid #fed7aa; color:#9a3412; border-radius:8px; padding:14px; font-size:14px; }
+    .stat-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:16px; }
+    .stat { background:#f8fafc; border:1px solid var(--line); border-radius:8px; padding:14px; }
+    .stat strong { display:block; font-size:24px; color:var(--ink); line-height:1.2; }
+    .stat span,.section-note,.card p { color:var(--muted); font-size:14px; }
+    .grid { display:grid; gap:16px; }
+    .two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    section { margin-top:18px; }
+    .card { border:1px solid var(--line); border-radius:8px; background:#fff; padding:18px; }
+    .flow { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:8px; margin-top:16px; }
+    .step { border:1px solid var(--line); background:#f8fafc; border-radius:8px; padding:12px; font-size:13px; font-weight:800; text-align:center; }
+    .demo-frame { margin-top:16px; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; }
+    .demo-top { display:flex; gap:6px; border-bottom:1px solid var(--line); padding:10px 12px; background:#f8fafc; }
+    .dot { width:10px; height:10px; border-radius:999px; background:#cbd5e1; }
+    .mock { padding:18px; display:grid; gap:12px; }
+    .hot-row { display:grid; grid-template-columns:44px 1fr 96px; gap:12px; align-items:center; border:1px solid var(--line); border-radius:8px; padding:12px; }
+    .rank { width:34px; height:34px; border-radius:8px; display:grid; place-items:center; background:var(--ink); color:white; font-weight:800; }
+    .tag { color:var(--teal); font-size:12px; font-weight:800; }
+    .heat { color:var(--brand); font-weight:800; text-align:right; }
+    .formula { margin-top:14px; border:1px solid var(--line); background:#f8fafc; border-radius:8px; padding:18px; font-weight:800; }
+    footer { color:var(--muted); font-size:13px; padding:28px 0 0; text-align:center; }
+    @media (max-width:860px) { .hero,.two,.three { grid-template-columns:1fr; } .flow { grid-template-columns:repeat(2,minmax(0,1fr)); } .nav { align-items:flex-start; flex-direction:column; } .hero-main,.hero-side,section { padding:20px; } .hot-row { grid-template-columns:36px 1fr; } .heat { grid-column:2; text-align:left; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="nav">
+      <div class="brand">HotInsight</div>
+      <div class="nav-links">
+        <a class="button primary" href="https://hot-insight-ai-rag-agent.vercel.app/" target="_blank" rel="noreferrer">打开交互 Demo</a>
+        <a class="button" href="https://github.com/" target="_blank" rel="noreferrer">GitHub Repository</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <section class="panel hero-main">
+        <p class="eyebrow">Portfolio Project · AI Product Prototype</p>
+        <h1>面向搜索场景的 AI 热点消费助手</h1>
+        <p class="lead">HotInsight 不是再做一个热搜榜，而是把“看到热点”之后的理解、判断、搜索、追问、关注后续和反馈偏好，设计成一套可迭代的产品链路。</p>
+        <div class="meta"><span class="pill">RAG 摘要</span><span class="pill">Agent 意图路由</span><span class="pill">Query 分类</span><span class="pill">BadCase 归因</span><span class="pill">推荐策略</span></div>
+        <p class="warning">完整可交互 Demo 部署在 Vercel。部分大陆网络访问 Vercel 可能较慢或需要代理；本页部署在 GitHub Pages，用于快速展示项目背景、产品方法和核心价值。</p>
+      </section>
+      <aside class="panel hero-side">
+        <p class="eyebrow">Demo Snapshot</p><h2>真实热点 + 产品判断</h2>
+        <p class="section-note">首页优先读取百度热搜实时榜，展示排名和热搜指数；HotInsight 负责二次标注用户意图、搜索承接动作和风险信号。</p>
+        <div class="stat-grid"><div class="stat"><strong>20</strong><span>首页热搜条目</span></div><div class="stat"><strong>10m</strong><span>线上刷新周期</span></div><div class="stat"><strong>7</strong><span>用户意图标签</span></div><div class="stat"><strong>5</strong><span>产品分析页面</span></div></div>
+      </aside>
+    </div>
+    <section class="panel"><h2>问题定义</h2><p class="section-note">传统热榜解决“发现热点”，但没有很好解决“为什么重要、我该怎么看、下一步搜什么、我的反馈是否影响推荐”。HotInsight 的机会是补齐热榜和搜索之间的 AI 理解层。</p><div class="grid three" style="margin-top:16px"><article class="card"><h3>标题信息密度低</h3><p>用户看到热搜标题后，仍需要补背景、时间线和影响范围。</p></article><article class="card"><h3>观点和事实混杂</h3><p>争议热点容易被情绪放大，需要分层展示事实、立场和信息缺口。</p></article><article class="card"><h3>搜索承接不足</h3><p>看完热点后用户会继续搜原因、进展、影响和行动建议，但缺少结构化 Query 引导。</p></article></div></section>
+    <section class="panel"><h2>产品路径</h2><p class="section-note">将热点消费拆成可观察、可路由、可反馈的连续链路。</p><div class="flow"><div class="step">看到热点</div><div class="step">判断兴趣</div><div class="step">AI 理解</div><div class="step">查看争议</div><div class="step">继续搜索</div><div class="step">关注后续</div><div class="step">反馈偏好</div></div></section>
+    <section class="panel"><h2>核心页面概览</h2><div class="demo-frame"><div class="demo-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="mock"><div class="hot-row"><div class="rank">1</div><div><strong>今日百度热搜总览</strong><br><span class="tag">用户意图：事实背景理解 · 承接动作：时间线 / 权威来源 / 相关搜索</span></div><div class="heat">热搜指数</div></div><div class="hot-row"><div class="rank">2</div><div><strong>热点详情页</strong><br><span class="tag">产品解读：生命周期 · 信息可信度 · 主用户意图 · 页面承接策略</span></div><div class="heat">AI 摘要</div></div><div class="hot-row"><div class="rank">3</div><div><strong>AI 热点问答</strong><br><span class="tag">意图识别 → 模块路由 → 结构化回答 → 推荐追问</span></div><div class="heat">Agent</div></div></div></div></section>
+    <section class="panel"><h2>方法框架</h2><div class="grid three" style="margin-top:16px"><article class="card"><h3>意图 Schema</h3><p>背景理解、原因追问、进展追踪、观点判断、实用关联、搜索扩展、情绪反馈。</p></article><article class="card"><h3>模块路由</h3><p>根据点击和提问匹配 30 秒摘要、时间线、争议焦点、相关搜索、AI 追问和反馈面板。</p></article><article class="card"><h3>反馈迭代</h3><p>关注后续、不感兴趣、总结有用、总结没用进入推荐权重和 BadCase 归因。</p></article></div><div class="formula">推荐分 = 热度分 * 0.35 + 增长速度 * 0.25 + 用户兴趣匹配 * 0.20 + 搜索意图强度 * 0.15 - 负反馈 * 0.05</div></section>
+    <section class="panel"><h2>作品集展示价值</h2><div class="grid two" style="margin-top:16px"><article class="card"><h3>AI 能力迁移</h3><p>把 RAG、Agent 路由、Prompt 结构化、BadCase 分析和 Query 分类经验迁移到热点消费场景。</p></article><article class="card"><h3>产品实习匹配</h3><p>覆盖热点产品 JD 中的功能设计、策略迭代、数据分析、自主调研、竞品分析和 AI 产品探索。</p></article></div></section>
+    <section class="panel"><h2>查看项目</h2><p class="section-note">建议简历主链接放 GitHub Pages 展示页，辅助链接放 Vercel 交互 Demo。若 Vercel 在部分网络无法打开，可先通过本页理解项目，再在可访问环境下查看完整 Demo。</p><div class="meta"><a class="button primary" href="https://hot-insight-ai-rag-agent.vercel.app/" target="_blank" rel="noreferrer">打开完整交互 Demo</a><a class="button" href="https://hot-insight-ai-rag-agent.vercel.app/dashboard" target="_blank" rel="noreferrer">查看数据看板</a><a class="button" href="https://hot-insight-ai-rag-agent.vercel.app/strategy" target="_blank" rel="noreferrer">查看策略页</a></div></section>
+    <footer>HotInsight · AI 热点消费助手 · Portfolio Demo</footer>
+  </main>
+</body>
+</html>
